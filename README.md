@@ -4,7 +4,7 @@ This web application is designed to facilitate podcast-style content creation, i
 
 **Guidelines on utilizing this web application effectively:**
 
-Clone the reposotry and modify API keys in **api_keys.py** file and run **app.py** with python interpreter in order to start the web application.
+Clone the repository and modify API keys in **api_keys.py** file and run **app.py** with python interpreter in order to start the web application.
 
 **This is how the interface looks:**
 
