@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+
+<head>
+    <title>Blog to Podcast Converter</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            audioFlag = document.getElementById('audioButtonFlag').value;
+            videoFlag = document.getElementById('videoButtonFlag').value;
+            audioDisplayFlag = document.getElementById('audioDisplayFlag').value;
+            videoDisplayFlag = document.getElementById('videoDisplayFlag').value;
+            if (audioFlag == 'True') {
+                document.getElementById('conversationDiv').disabled = false;
+                $('html, body').animate({
+                    scrollTop: $('#conversationDiv').offset().top
+                }, 1500);
+            } else {
+                document.getElementById('Generate Audio').disabled = true;
+            }
+            if (videoFlag == 'True') {
+                document.getElementById('Generate Video').disabled = false;
+            } else {
+                document.getElementById('Generate Video').disabled = true;
+            }
+            if (audioDisplayFlag == 'True') {
+                document.getElementById('audioDiv').style.display = "block";
+                $('html, body').animate({
+                    scrollTop: $('#audioDiv').offset().top
+                }, 1500);
+            } else {
+                document.getElementById('audioDiv').style.display = "none";
+            }
+            if (videoDisplayFlag == 'True') {
+                document.getElementById('videoDiv').style.display = "block";
+                $('html, body').animate({
+                    scrollTop: $('#videoDiv').offset().top
+                }, 1500);
+            } else {
+                document.getElementById('videoDiv').style.display = "none";
+            }
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="se-pre-con"></div>
+
+    <div id="contents">
+
+        <h2>Blog to Podcast Converter</h2>
+
+        <form id="myForm" action="/" method="POST" enctype="multipart/form-data">
+
+            <textarea id="blog" name="blog" rows="10" cols="50" placeholder="Enter your blog here"
+                maxlength="10000">{{blog}}</textarea>
+            <input type="file" value="Upload Blog" name="file" id="file">
+            <div id="buttons">
+                <input type="submit" value="Generate Conversation" name="action"
+                    id="Generate Conversation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Generate Audio" name="action"
+                    id="Generate Audio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Generate Video" name="action" id="Generate Video">
+            </div>
+
+            <br>
+            {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+            <br>
+            {% endif %}
+
+            {% if conversation %}
+            <div id='conversationDiv'>
+                {{conversation | safe}}
+            </div>
+            <br>
+            {% endif %}
+
+            {% if audio_url %}
+            <div id='audioDiv'>
+                {{audio_url | safe}}
+            </div>
+            <br>
+            {% endif %}
+
+            {% if video_url %}
+            <div id='videoDiv'>
+                {{video_url | safe}}
+            </div>
+            {% endif %}
+
+            <input type="hidden" id="audioButtonFlag" name="audioButtonFlag" value="{{audioButtonFlag}}">
+            <input type="hidden" id="videoButtonFlag" name="videoButtonFlag" value="{{videoButtonFlag}}">
+            <input type="hidden" id="audioDisplayFlag" name="audioDisplayFlag" value="{{audioDisplayFlag}}">
+            <input type="hidden" id="videoDisplayFlag" name="videoDisplayFlag" value="{{videoDisplayFlag}}">
+
+        </form>
+
+        <br>
+
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
