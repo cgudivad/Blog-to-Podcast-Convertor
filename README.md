@@ -25,3 +25,15 @@ Clone the repository and modify API keys in **api_keys.py** file and run **app.p
 **Step - 4:** On clicking generate video button, system uses Heygen API to summarize the blog into a short conversation video with two AI Avatars.
 
 ![image](https://github.com/cgudivad/Blog-to-Podcast-Convertor/assets/126507537/5ffb30a2-3778-485a-91db-4ed554437ac5)
+
+**Requirements:**
+
+![image](https://github.com/cgudivad/Blog-to-Podcast-Convertor/assets/126507537/fcafe38f-8443-4454-80ec-a197dd9497a0)
+
+**Tech Stack:**
+
+![image](https://github.com/cgudivad/Blog-to-Podcast-Convertor/assets/126507537/2a8204f0-932e-43f2-a6d1-2fc5107b53a2)
+
+**WorkFlow:**
+
+![image](https://github.com/cgudivad/Blog-to-Podcast-Convertor/assets/126507537/6ad7f4cf-1c3d-412f-ab36-2b9d3f65e495)
